@@ -51,7 +51,8 @@ public class MyServlet extends HttpServlet {
                 default:
                 	response.getWriter().append("Invalid input. Please ensure both parameters are integers.");
                 }
-                response.getWriter().append("Result is: " + res);
+//                response.getWriter().append("Result is: " + res);
+                  response.sendRedirect("NewFile.jsp?res="+res);
             } catch (NumberFormatException e) {
                 response.getWriter().append("Invalid input. Please ensure both parameters are integers.");
             }
