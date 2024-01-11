@@ -1,10 +1,79 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Calculator</title>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        height: 50vh; /* Full viewport height */
+        margin: 0; /* Remove default margin */
+    }
+
+    .input-fields, .operator-button, button {
+        margin: 10px 0; /* Space between rows */
+    }
+
+    .input-fields {
+        display: flex; /* Align input fields in a row */
+        justify-content: center; /* Center input fields horizontally */
+    }
+
+    .input-fields input {
+        padding: 10px;
+        margin-right: 10px; /* Space between input fields */
+        border: 2px solid #007bff; /* Blue border */
+        border-radius: 5px; /* Rounded corners */
+        width: calc(50% - 20px); /* Calculate width */
+    }
+
+    .input-fields input:last-child {
+        margin-right: 0; /* Remove margin for the last input field */
+    }
+
+    .operator-button button, button {
+        padding: 15px 30px; /* Increased padding for width and height */
+        min-width: 120px; /* Minimum width */
+        border: none;
+        background-color: #007bff; /* Blue background */
+        color: white; /* White text */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        font-size: 16px; /* Larger font size */
+    }
+
+    .operator-button button:hover, button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    .operator-button {
+        display: flex; /* Align buttons in a row */
+        justify-content: center; /* Center buttons horizontally */
+    }
+
+    .operator-button button {
+        margin: 0 5px; /* Space between buttons */
+    }
+
+</style>
 </head>
 <body>
-
+    <img alt="A calculator GIF" src="images/calc-gif.gif">
+    <h1>Welcome to the Servlet Calculator</h1>
+    <form action="MyServlet">
+        <div class="input-fields">
+            <input name="first-num" placeholder="Enter first number">
+            <input name="second-num" placeholder="Enter second number">
+        </div>
+        <div class="operator-button">
+            <button class="op">+</button>
+            <button class="op">-</button>
+            <button class="op">*</button>
+            <button class="op">/</button>
+        </div>
+    </form>
 </body>
 </html>
