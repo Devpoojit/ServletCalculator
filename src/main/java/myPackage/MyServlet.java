@@ -27,13 +27,31 @@ public class MyServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String num1 = request.getParameter("first-num");
         String num2 = request.getParameter("second-num");
+        String operator = request.getParameter("bt");
 
         // Check if the parameters are not null and not empty
         if (num1 != null && !num1.isEmpty() && num2 != null && !num2.isEmpty()) {
             try {
                 int i = Integer.parseInt(num1);
                 int j = Integer.parseInt(num2);
-                response.getWriter().append("Sum is: " + (i + j));
+                int res = 0;
+                switch(operator) {
+                case "1":
+                	res = i + j;
+                	break;
+                case "2":
+                	res = i - j;
+                	break;
+                case "3":
+                	res = i * j;
+                	break;
+                case "4":
+                	res = i / j;
+                	break;
+                default:
+                	response.getWriter().append("Invalid input. Please ensure both parameters are integers.");
+                }
+                response.getWriter().append("Result is: " + res);
             } catch (NumberFormatException e) {
                 response.getWriter().append("Invalid input. Please ensure both parameters are integers.");
             }
